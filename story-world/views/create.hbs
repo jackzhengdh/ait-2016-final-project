@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<div class="container-alert"></div>
+	
+	
+	<form method="POST" action="../lists/{{list.slug}}/create">
+		<div class="container">
+			<h1>Story World</h1>
+			<h2>Modify ... {{post.title}}!</h2>
+			{{#each post.images}}
+				<div class="polaroid">
+					<img src="{{this.url}}">
+					<div class="container-p"><p>
+						<input type="checkbox" name="idList" 
+							value="{{this._id}}">
+						{{this.caption}}</p>
+					</div>
+				</div><br><br>
+			{{/each}}
+			<button class="button-1" type="submit">Submit</button>
+		</div>
+	</form><br><br>
+
+	<form method="POST" action="../image-posts/{{post.slug}}/add-image">
+		<div class="container">
+			Image URL: <input type="text" name="url">, 
+			Caption: <input type="text" name="caption"><br><br>
+			<button class="button-1" type="submit">Add Another</button>
+		</div>
+	</form>
+
+
+
+
+	<p><br><a href="./">Back to All Posts</a> | 
+	<a href="/../users/login">Log in</a> |
+	<a href="/../users/register">Register</a></p>
+
+</head>
+</html>

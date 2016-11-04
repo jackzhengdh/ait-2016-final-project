@@ -1,40 +1,121 @@
-Name of Project: Task Management
+Name of Project: Story World
 
-Overview
+***** Overview *****
 
-A user can register or log in and enter his/her tasks. The site will show completed tasks and pending tasks with due dates and priority. The user can manage his/her task lists by grouping them and adding and removing them: creating new tasks with a group, grouping tasks by kinds, etc..
+  A user can writes stories and upload it (as an author), create a cover page for it, and bundle stories into story books (as a publisher). A user can also browse, search and read story books and stories created by other users. A user can also like stories. Ideally a user will be able to type the story or upload it locally or link it from the web. Also ideally the site will provide users' overall feedback to each story combine feedback to derive an overall feedback for story books. 
 
-Data Model (just a draft)
+***** Data Model (just a draft) *****
 
-// users
-// * our site requires authentication...
-// * so users have a username and password
-// * they also can have 0 or more lists
-var User = new mongoose.Schema({
-  // username, password provided by plugin
-  lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
-});
+  // users
+  // * our site requires authentication...
+  // * so users have a username and password
+  // * they also can have 0 or more lists
+  var User = new mongoose.Schema({
+    // username, password provided by plugin
+    lists: [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
+  });
 
-// a task
-// * includes the due date of this task 
-// * items past due date can be crossed off
-// * also includes a prioty, higher prioty is placed front)
-var Task = new mongoose.Schema({
-  name: {type: String, required: true},
-  due: {type: Number, min: 1, required: true},
-  priority: {type: Number, min: 1, required: false},
-  checked: {type: Boolean, default: false, required: true}
-}, {
-  _id: true
-});
+  // a story
+  // * includes the due date of this task 
+  // * items past due date can be crossed off
+  // * also includes a prioty, higher prioty is placed front)
+  var Story = new mongoose.Schema({
+    title: {type: String, required: true},
+    content: {type: string, required: true},
+    author: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+  }, {
+    _id: true
+  });
 
-// a task list
-// * each list must have a related user
-// * a list can have 0 or more tasks
-var List = new mongoose.Schema({
-  user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-  name: {type: String, required: true},
-  createdAt: {type: Date, required: true},
-  tasks: [Task]
-});
+  // a story book
+  // * each book must have a publisher
+  // * a list can have 0 or more tasks
+  var Book = new mongoose.Schema({
+    publisher: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+    name: {type: String, required: true},
+    createdAt: {type: Date, required: true},
+    stories: {type: mongoose.Schema.Types.ObjectId, ref:'Story'},
+  });
+
+***** Wireframes *****
+
+  /users/register
+  register pic
+
+  /users/login
+  log in pic
+
+  /users/stories
+  list all stories created by this author (user)
+
+  /users/likes
+  list all stories liked by this user
+
+  /users/publish
+  allows the user to search stories and combine them into books
+
+  /books
+  list all books
+  can search books
+
+  /books/name-of-book/
+  list all sotires within that book
+  can search stories within that boook
+  also allow the publisher (only the user that is the publisher of this book)
+  to add and delete stories to this book
+
+  /books/name-of-book/name-of-story/
+  allows a user to read the story in detail, and like it
+
+  /stories/search
+  can search all stories
+
+  /stories/create
+  can create new stories
+
+  /stories/name-of-story
+  also allows a user to read the story in detail, and like it
+
+***** Site Map *****
+
+  Home page / with links to stories, books, and users (My Account, etc)
+  Stories /stories
+  Books /books
+  Users /users
+
+  Stories: 
+    search stories /stories/search
+    create stories /stories/create
+    read a story /stories/name-of-story
+
+  Books: 
+    list all books /books
+    go to one particular book /books/name-of-book
+    go to one particular story in a book /books/name-of-book/name-of-story
+
+  Users: 
+    log in page /users/login
+    register page /users/register
+    show all created stories /users/stories
+    show all liked stories (created by other users) /users/likes
+    publish a book and put stories in it /users/publish
+
+***** User Stories *****
+
+  1. as a user, I can create stories
+  2. as a user, I can like stories
+  3. as a user, I can put stories together into a book and publish it
+  4. as a user, I can edit books published by myself (add/delete stories)
+  5. as a user, I can edit stories created by myself
+
+***** Research Topics *****
+
+  1. authenticatin (6 points)
+    Basic requirement due to nature of the site. User discover others' stories.
+  2. css framework throughout (2 points)
+    Ease of development.
+  3. functional testing (6 points)
+    Ease of development, faster testing
+  4. other API library and modules 
+    Research in progress.
 
