@@ -1,5 +1,6 @@
 # Files and directories #
 node_modules/
+config.json
 
 # The following comes from octocat on github #
 

@@ -1,82 +1,17 @@
-<!DOCTYPE css>
-
 body {
   padding: 50px;
-  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
 
-h1 {
-	text-align: center;
-	padding-top: 50px;
-	font-size: 36px;
-	color: midnightblue;
-	font-family: Arial;
-}
-
-h2 {
-	text-align: left;
-	font-size: 24px;
-	font-family: Arial;
-}
-.button {
-	font-size: 20px;
-	font-family: Arial;
-	padding: 10px 10px;
-	border-radius: 10px;
-	background-color: white;
-	border: 2px solid lightgrey;
-}
-
-.button-1 {
-	display: inline-block;
-	font-size: 20px;
-	padding: 10px 10px;
-	font-family: Arial;
-	cursor: pointer;
-	background-color: midnightblue;
-	border-radius: 10px;
-	border: none;
-	color: ivory;
-}
-
-h3 {
-	font-size: 24px;
-	font-weight: bold;
-	font-family: Arial;
-	text-align: center;
-	color: midnightblue;
-}
-
-body {
-	color: black;
-	text-align: left;
-	font-size: 20px;
-	font-family: Arial;
-}
-
-p {
-	text-align: center;
-}
-
-table, th, td {
-	border: 1px solid black;
-	text-align: left;
-	text-indent: 8px;
-}
-
-input[type=text], select {
-	font-size: 28px;
-}
-
-.container {
+div.container {
 	padding: 10px;
 	width: 75%;
 	margin: auto;
-	background-color: lightgrey;
+	background-color: beige;
 }
 
 div.polaroid {
@@ -86,14 +21,10 @@ div.polaroid {
 	0 6px 20px 0 rgba(0, 0, 0, 0.16);
 }
 
-img {width: 100%}
-
 div.container-p {
 	width: 100%;
 	text-align: center;
 	padding: 5px 0px 5px 0px;
 }
 
-div.container-alert {
-	height: 20px;
-}
+img {width: 100%}

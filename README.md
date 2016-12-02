@@ -40,10 +40,10 @@ Name of Project: Story World
 ***** Wireframes *****
 
   /users/register
-  register pic
+  register
 
   /users/login
-  log in pic
+  log in
 
   /users/stories
   list all stories created by this author (user)

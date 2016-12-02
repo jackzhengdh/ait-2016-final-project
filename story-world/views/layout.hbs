@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+	<head>
+		<title>{{title}}</title>
+		<link rel='stylesheet' href='/stylesheets/style.css'>
+	</head>
+	<body>
+		<div class="container">
+			<h1>480chan - Image Board!</h1>
+			{{#if req.user}}
+			<div>You're currently logged in as: 
+				<a href="/image-posts/{{user.username}}">{{user.username}}</a>
+				<br> Click 
+				<a href="/register">here</a> to switch user
+			</div>
+			{{else}}
+			<a href="/login">login</a> or 
+			<a href="/register">register</a>
+			{{/if}}
+			<div>
+				{{{body}}}
+			</div>
+			<p><br><a href="/image-posts">Back to image post</a></p>
+		</div>	
+	</body>
 </html>

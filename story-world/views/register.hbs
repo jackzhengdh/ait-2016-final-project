@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-	<div class="container-alert"></div>
-	
-	<form method="POST" action="../users/register">
-		<div class="container">
-			<h1>Story World</h1>
-			<h2>Register</h2>
-			<div class="container-alert">
-				<font color="red">{{message}}<br><br></font>
-			</div>	
-			Username: <input type="text" name="username"><br><br>
-			Password: <input type="text" name="password"><br><br>
-			<button class="button-1" type="submit">Register</button>
-		</div>
-	</form>
-
-	<p><br><a href="../image-posts">Back to All Posts</a> | 
-	<a href="/../users/login">Log in</a></p>
-
-</head>
-</html>
+<h2>Register</h2>
+{{message}}
+<form action="register" method="POST">
+	<div>
+		<label>username:</label> <input type="text" name="username">
+	</div>
+	<div>
+		<label>password:</label> <input type="password" name="password">
+	</div>
+	<input type="submit" value="Register">
+</form>

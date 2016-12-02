@@ -1,0 +1,28 @@
+{{#if req.user}}
+<h2>Modify ... {{post.title}}!</h2>
+{{else}}
+<br>You are not logged in
+{{/if}}
+
+{{#if showForm}}
+	<form method="POST" action="{{post.slug}}/delete">
+
+	{{#each post.images}}
+		<input type="checkbox" name="idList" value="{{this._id}}">
+
+		<div class="polaroid">
+			<img src="{{url}}">
+			<div class="container-p">
+				<p>{{caption}}</p>
+			</div>
+		</div><br><br>
+	{{/each}}
+	<button class="button" type="submit">Delete Images</button>
+	</form><br><br>
+
+	<form method="POST" action="{{post.slug}}/add">
+		Image URL: <input type="text" name="url">, 
+		Caption: <input type="text" name="caption"><br><br>
+		<button class="button" type="submit">Add Another</button>
+	</form>
+{{/if}}

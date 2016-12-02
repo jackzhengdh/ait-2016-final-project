@@ -1,0 +1,31 @@
+{{#if req.user}}
+<h2>{{user.username}}'s Image Posts</h2>
+{{else}}
+<br>You are not logged in
+{{/if}}
+
+{{#if showForm}}
+	<p>Add an image post...</p>
+	<form method="POST" action="/image-post/create">
+		Image Post Title: <input type="text" name="title"><br><br>
+		Image 1 URL: <input type="text" name="url-1">,
+		Caption: <input type="text" name="caption-1"><br><br>
+		Image 2 URL: <input type="text" name="url-2">,
+		Caption: <input type="text" name="caption-2"><br><br>
+		Image 3 URL: <input type="text" name="url-3">,
+		Caption: <input type="text" name="caption-3"><br><br>
+		<button type="submit">Add New Image Post</button>
+	</form>
+
+	{{#each user.imagePosts}}
+		<h2><a href="/image-posts/{{../user.username}}/{{slug}}">{{title}}</a></h2>
+		{{#each images}}
+			<div class="polaroid">
+				<img src="{{url}}">
+				<div class="container-p">
+					<p>{{caption}}</p>
+				</div>
+			</div><br><br>
+		{{/each}}<br><br>
+	{{/each}}
+{{/if}}
