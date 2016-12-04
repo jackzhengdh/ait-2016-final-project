@@ -1,5 +1,10 @@
 Name of Project: Story World
 
+***** Important Note for Instructor and Graders *****
+Currently the web app is running HW06 deployed on i6.cims.nyu.edu. Story World project is still under development. 
+Also, the port assigned to me was used by someone else. Here I used a different port number to run this app.
+In addition, the git hub repository I found under CSCI-UA.0480-001 contains some work probably by someone else as well. In any case, I created my own public git repository here to save my work.
+
 ***** Overview *****
 
   A user can writes stories and upload it (as an author), create a cover page for it, and bundle stories into story books (as a publisher). A user can also browse, search and read story books and stories created by other users. A user can also like stories. Ideally a user will be able to type the story or upload it locally or link it from the web. Also ideally the site will provide users' overall feedback to each story combine feedback to derive an overall feedback for story books. 
