@@ -31,6 +31,7 @@ mongoose.model('ImagePost', ImagePost);
 if (process.env.NODE_ENV == 'PRODUCTION') { 
 	// if we're in PRODUCTION mode, then read the configration from a file 
 	// use blocking file io to do this... 
+	console.log("test production mode");
 	var fs = require('fs'); 
 	var path = require('path'); 
 	var fn = path.join(__dirname, 'config.json'); 
@@ -38,7 +39,8 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 	// our configuration file will be in json, so parse it and set the 
 	// conenction string appropriately! 
 	var conf = JSON.parse(data); 
-	var dbconf = conf.dbconf; 
+	var dbconf = conf.dbconf;
+	console.log(dbconf); 
 } 
 else { // if we're not in PRODUCTION mode, then use 
 	dbconf = 'mongodb://localhost/ait-final';
